@@ -9,10 +9,11 @@ import sys
 def print_help():
 	print("""
 Available Commands:
-	pomo <minutes>			-- Log a PomoDoro Session
+	pomo <minutes> <topic>		-- Log a PomoDoro Session
 	spend <amount> <desc> 		-- Log an expense
-	note <your note> 		-- Save a diary note
+	note <title> <desc> 		-- Save a diary note
 	review				-- Show today's summary
+					-- Please leave no option vacancy
 	""")
 
 def main():
@@ -20,13 +21,13 @@ def main():
 		print_help()
 		print("Please refer help for correct usages")
 		return
-	cmd=sys.agrv[1]
+	cmd=sys.argv[1]
 	if cmd=="pomo":
-		time_tracker.add_pomo(int(sys.argv[2]))
+		time_tracker.add_pomo(int(sys.argv[2])," ".join(sys.argv[3:]))
 	if cmd=="spend":
-		money_tracker.add_expense(float(sys.argv[2]," ".join(sys.argv[3:]))
+		money_tracker.add_expense(float(sys.argv[2])," ".join(sys.argv[3:]))
 	elif cmd=="note":
-		diary_logger.add_note(" ".join(sys.argv[2:])
+		diary_logger.add_note(str(sys.argv[2])," ".join(sys.argv[3:]))
 	elif cmd=="review":
 		stats_viewer.show_review()
 	else:
