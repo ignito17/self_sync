@@ -1,7 +1,9 @@
 # 📊 Performance Tracker
+
 Tracking development blocks, Pomodoro usage, and CLI/API/Git activity.
 
 ## 🧱 Block Definition & Metrics
+
 - **Definition of a Work Block:** One work block is defined as a continuous focused development + tracking effort that includes code writing, API or CLI interaction, and logging (via pomo, git, or API calls).
 - **Pomodoro Unit:** One Pomodoro is a 25-30 minute deep work session, ideally logged using the CLI `main.py pomo` command.
 - **Session Completion Criteria:**
@@ -20,6 +22,7 @@ Tracking development blocks, Pomodoro usage, and CLI/API/Git activity.
 ## 📅 Daily Logs
 
 ### ✅ 2025-07-11
+
 - **Start:** 12:43 PM IST
 - **End:** 4:20 PM IST
 - **Duration:** 3h 37m
@@ -33,6 +36,22 @@ Tracking development blocks, Pomodoro usage, and CLI/API/Git activity.
   - ✅ Organized `docs/`, moved today.md and tracker
   - ✅ Committed & pushed to GitHub
 - **Comments:** Strong structured session. Good file hygiene, minimal idle time.
+
+### ✅ 2025-07-11 (Evening Session)
+
+- **Start:** 8:25 PM IST  
+- **End:** 9:50 PM IST  
+- **Duration:** 1h 25m  
+- **Pomodoros:** 1  
+- **Dev Modes:** API Testing, HTTPie, Flask  
+- **Focus Score:** 8.7 / 10  
+- **Tasks Completed:**
+  - ✅ Installed & configured HTTPie CLI
+  - ✅ Tested `/add_pomo` and `/add_expense` endpoints
+  - ✅ Fixed validation bug in `add_expense`
+  - ✅ Successfully logged realistic data via CLI (compact, samosa logs 😉)
+  - ✅ Git committed and pushed all updates to GitHub  
+- **Comments:** Very efficient block. API interaction is smooth now. Self Sync is 75% GUI-ready.
 
 ---
 
@@ -52,43 +71,48 @@ Tracking development blocks, Pomodoro usage, and CLI/API/Git activity.
 | 10  | 2025-07-10 | 3:30–5:30 PM       | 2h       | 1     | Notes/Review   | CLI dev, refactoring notes module                    | ✅ Done  |
 | 11  | 2025-07-11 | 12:43–4:20 PM      | 3h 37m   | 1     | CLI + API Dev  | Flask API (`add_note`), pomo log, docs restructure   | ✅ Strong|
 
-### 📊 Totals:
+### 📊 Totals
+
 - ✅ Days Productively Worked: 6
 - ⚠️ Light Effort Days: 2
 - ❌ Missed Days: 3
 - 🧠 Total Pomodoros: 7
 - 🛠️ Modules Developed: `main.py`, `api/app.py`, `modules/`
 - ⏱️ Approx Total Time: ~13–14 hours (deep + light)
-****
 
+---
 
 ### ⏰ Review Reminder
 
 > **🔁 This performance log must be reviewed every 7 days (or earlier).**  
+>
 > - Last reviewed on: **2025-07-11 (Day 11)**  
 > - ⏳ Next review due before: **2025-07-18 (Day 18)**  
 > - 📌 Action: At next review, re-assess missed days, productivity patterns, and adjust plan if needed.
 
-
 ### 🧩 Phase 2 Upgrade Plan – Self Sync GUI (TUI+API)
 
 #### ✅ July 11 (Tonight)
+
 - [x] Finish gitignore + push
 - [ ] Add Flask `/add_pomo`, `/add_expense`
 - [ ] Test all API endpoints with curl
 
 #### 🔌 July 12 (Friday)
+
 - [ ] Create `/review` API
 - [ ] Create `api_client.py` wrapper
 - [ ] Push final API code to GitHub
 
 #### 🖥️ July 13 (Saturday)
+
 - [ ] Build TUI with Textual
 - [ ] Add note/pomo/expense/review tabs
 - [ ] Connect to API via requests
 - [ ] Test in Termux + PC
 
 #### 🎁 July 14 (Sunday)
+
 - [ ] Add error handling + polish
 - [ ] Add `.env` and `config.py`
 - [ ] Write `docs/how_to_use.md`
