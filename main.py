@@ -16,6 +16,11 @@ Available Commands:
 					-- Please leave no option vacancy
 	""")
 
+time_tracker.init_db()
+money_tracker.init_db()
+diary_logger.init_db()
+
+
 def main():
 	if len(sys.argv) < 2:
 		print_help()
