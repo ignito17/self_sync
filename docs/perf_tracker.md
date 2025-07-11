@@ -68,3 +68,29 @@ Tracking development blocks, Pomodoro usage, and CLI/API/Git activity.
 > - Last reviewed on: **2025-07-11 (Day 11)**  
 > - ⏳ Next review due before: **2025-07-18 (Day 18)**  
 > - 📌 Action: At next review, re-assess missed days, productivity patterns, and adjust plan if needed.
+
+
+### 🧩 Phase 2 Upgrade Plan – Self Sync GUI (TUI+API)
+
+#### ✅ July 11 (Tonight)
+- [x] Finish gitignore + push
+- [ ] Add Flask `/add_pomo`, `/add_expense`
+- [ ] Test all API endpoints with curl
+
+#### 🔌 July 12 (Friday)
+- [ ] Create `/review` API
+- [ ] Create `api_client.py` wrapper
+- [ ] Push final API code to GitHub
+
+#### 🖥️ July 13 (Saturday)
+- [ ] Build TUI with Textual
+- [ ] Add note/pomo/expense/review tabs
+- [ ] Connect to API via requests
+- [ ] Test in Termux + PC
+
+#### 🎁 July 14 (Sunday)
+- [ ] Add error handling + polish
+- [ ] Add `.env` and `config.py`
+- [ ] Write `docs/how_to_use.md`
+- [ ] Record 1-minute usage video
+- [ ] Mark Self Sync Phase 2 Complete ✅
