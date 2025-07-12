@@ -69,6 +69,34 @@ def add_expense():
     conn.commit()
     conn.close()
     return jsonify({"message": f"💸 Expense of ₹{amount} for '{desc}' logged."})
+
+# Route to access /review API
+@app.route("/review", methods=["POST"])
+def add_review():
+    data = request.get_json(force=True)
+    title = data.get("title", "").strip()
+    desc = data.get("desc", "").strip()
+
+    if not title or not desc:
+        return jsonify({"status": "fail", "msg": "Missing title or desc"}), 400
+
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+        cur.execute("""
+            INSERT INTO reviews (title, description, timestamp)
+            VALUES (?, ?, ?)""",
+            (title, desc, datetime.now().isoformat()))
+        conn.commit()
+        conn.close()
+
+        return jsonify({
+            "status": "success",
+            "msg": f"📋 Review '{title}' logged successfully."
+        }), 201
+    except Exception as e:
+        return jsonify({"status": "error", "msg": str(e)}), 500
+
 if __name__=="__main__":
     app.run()
     # app.run(host="127.0.0.1", port=5000, debug=True)
