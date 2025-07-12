@@ -19,7 +19,7 @@ def fetch_latest_data():
 
     # 📝 Fetch latest 5 diary entries
     try:
-        c.execute("SELECT title, description FROM diary_entries ORDER BY timestamp DESC LIMIT 5")
+        c.execute("SELECT title, description FROM diary_entries ORDER BY timestamp DESC LIMIT 25")
         notes = c.fetchall()
     except sqlite3.OperationalError:
         notes = []
