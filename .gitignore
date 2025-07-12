@@ -1,1 +1,4 @@
 docs/perf_tracker_delta.md
+docs/track/*.py
+docs/track/*.md
+docs/track/*

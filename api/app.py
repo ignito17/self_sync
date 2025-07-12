@@ -1,7 +1,7 @@
 # self_sync_core-a2, self_sync_web-a1
 # api/api.py
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import sqlite3
 import os 
 from datetime import datetime
@@ -13,7 +13,8 @@ DB_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'db', 'd
 # Creating the base route
 @app.route("/")
 def index():
-    return "🧠 Self Sync API is live!"
+    # return "🧠 Self Sync API is live!"
+    return render_template(index.html)
 
 # Route to acess /add_note api
 @app.route("/add_note", methods=["POST"])
