@@ -9,15 +9,15 @@ import sys
 def print_help():
 	print("""
 Available Commands:
-	pomo <minutes> <topic>		-- Log a PomoDoro Session
-	spend <amount> <desc> 		-- Log an expense
-	note <title> <desc> 		-- Save a diary note
-	review				-- Show today's summary
-					-- Please leave no option vacancy
+	pomo <minutes> <topic>			-- Log a PomoDoro Session
+	spend <amount> <desc> 			-- Log an expense
+	note <title> <desc> 			-- Save a diary note
+	review							-- Show today's summary
+									-- Please leave no option vacancy
 	""")
 
-time_tracker.init_db()
-money_tracker.init_db()
+# time_tracker.init_db()			#legacy from self_sync_core-a1
+# money_tracker.init_db()			#legacy from self_sync_core-a1
 diary_logger.init_db()
 
 

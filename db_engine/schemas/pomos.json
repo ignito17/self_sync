@@ -1,0 +1,7 @@
+{
+    "columns":              ["id","timestamp","topic","minutes"],
+    "types":                ["int","datetime","str","int"],
+    "primary_key":          "id",
+    "auto_increment":       true,
+    "timestamp_fields":     ["timestamp"]
+}

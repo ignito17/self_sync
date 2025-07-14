@@ -1,0 +1,7 @@
+{
+    "columns":          ["id","timestamp","title","description"],
+    "types":            ["int","datetime","str","str"],
+    "primary_key":      "id",
+    "auto_increment":   true,
+    "timestamp_fields": ["timestamp"]    
+}
