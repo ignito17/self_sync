@@ -111,6 +111,4 @@ This will be your living proof of concept.
 
 ---
 
-Shall I generate the starter code + instructions in full and push this into your working directory now?
-
 ---- Initial Iteration of the Application.
