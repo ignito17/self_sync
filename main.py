@@ -4,6 +4,7 @@
 # self_sync/main.py			-- file name
 
 from modules import time_tracker,money_tracker,diary_logger,stats_viewer
+from api import app
 import sys
 
 def print_help():
@@ -13,6 +14,8 @@ Available Commands:
 	spend <amount> <desc> 			-- Log an expense
 	note <title> <desc> 			-- Save a diary note
 	review							-- Show today's summary
+	webapp							-- Calls Self Sync to host a local flask api 
+	   								-- and show address directory
 									-- Please leave no option vacancy
 	""")
 
@@ -35,6 +38,8 @@ def main():
 		diary_logger.add_note(str(sys.argv[2])," ".join(sys.argv[3:]))
 	elif cmd=="review":
 		stats_viewer.show_review()
+	elif cmd=="webapp":
+		app()			# Run the flask localhost app
 	else:
 		print_help()
 if __name__=="__main__":

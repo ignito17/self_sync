@@ -1,14 +1,15 @@
 # self_sync_core-a2, self_sync_web-a1
 # api/api.py
 
-from flask import Flask, request, jsonify, render_template
-import sqlite3
+# import sqlite3
 import os 
 from datetime import datetime
+from flask import Flask, request, jsonify, render_template
+from modules import diary_logger, money_tracker, stats_viewer, time_tracker
 
 # Creating the Flask app
 app = Flask(__name__)
-DB_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'db', 'data.sqlite'))
+# DB_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'db', 'data.sqlite'))
 
 # Creating the base route
 @app.route("/")
