@@ -18,7 +18,7 @@ Available Commands:
 
 # time_tracker.init_db()			#legacy from self_sync_core-a1
 # money_tracker.init_db()			#legacy from self_sync_core-a1
-diary_logger.init_db()
+# diary_logger.init_db()			#legacy from self_sync_core-a1
 
 
 def main():

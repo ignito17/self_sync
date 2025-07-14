@@ -1,49 +1,34 @@
 # modules/stats_viewer.py
+# A row is a dict with ("Column":value)
 
 import sqlite3
 from datetime import datetime
+from db_engine.engine import CSVEngine
 
-DB_PATH = "db/data.sqlite"
+engine=CSVEngine()  # Engine Object
 
 def show_review():
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
-
     today = datetime.now().date().isoformat()
-
+    
     print("\n📊 Daily Review")
     print("=" * 30)
 
+    print(f"✅ Pomodoro:")
     # Pomodoro summary
-    c.execute("""
-        SELECT SUM(minutes), topic 
-	FROM pomo_sessions
-        WHERE DATE(timestamp) = ?
-	GROUP BY pomo_sessions.topic
-    """, (today,))
-    pomo_total = c.fetchone()[0]
-    print(f"✅ Pomodoro: {pomo_total or 0} minutes for topic")
+    row_list=engine["pomos"].read_all()
+    for row in row_list:
+        print(row,type(row))
 
+    print(f"💸 Expenses: ₹")
     # Expense summary
-    c.execute("""
-        SELECT SUM(amount) FROM expenses
-        WHERE DATE(timestamp) = ?
-    """, (today,))
-    expense_total = c.fetchone()[0]
-    print(f"💸 Expenses: ₹{expense_total or 0:.2f}")
+    row_list=engine["expenses"].read_all()
+    for row in row_list:
+        print(row,type(row))
+    # print(f"💸 Expenses: ₹{expense_total or 0:.2f}")
 
     # Diary entries
     print("\n📝 Notes:")
-    c.execute("""
-        SELECT * FROM diary_entries
-        WHERE DATE(timestamp) = ?
-    """, (today,))
-    notes = c.fetchall()
-    if notes:
-        for i, note in enumerate(notes, 1):
-            print(f"  {i}. {note[0],note[1],note[2:]}")
-    else:
-        print("  No diary notes today.")
+    for row in row_list:
+        print(row,type(row))
 
     print("=" * 30)
-    conn.close()
