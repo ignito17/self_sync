@@ -1,6 +1,7 @@
 # Base CLI Runner for the script 
 
 # self_sync_core-a1			-- file version name
+# self_sync_core-a2
 # self_sync/main.py			-- file name
 
 from modules import time_tracker,money_tracker,diary_logger,stats_viewer
@@ -44,4 +45,3 @@ def main():
 		print_help()
 if __name__=="__main__":
 	main()
-
