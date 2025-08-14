@@ -41,7 +41,7 @@ def main():
 	elif cmd=="review":
 		stats_viewer.show_review()
 	elif cmd=="webapp":
-		app.run()			# Run the flask localhost app
+		app.app.run()			# Run the flask localhost app
 	else:
 		print_help()
 if __name__=="__main__":

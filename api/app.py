@@ -7,15 +7,16 @@ from datetime import datetime
 from flask import Flask, request, jsonify, render_template
 from modules import diary_logger, money_tracker, stats_viewer, time_tracker
 
+
 # Creating the Flask app
 app = Flask(__name__)
 # DB_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'db', 'data.sqlite'))
 
 # Creating the base route
-@app.route("/")
+@app.route("/", methods=["GET"])
 def index():
     # return "🧠 Self Sync API is live!"
-    return render_template(index.html)
+    return render_template("index.html")
 
 # Route to acess /add_note api
 @app.route("/add_note", methods=["POST"])
