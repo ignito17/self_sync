@@ -1,4 +1,5 @@
-# Base CLI Runner for the script 
+# Main entry point of application.
+# Base CLI Runner for the script.
 
 # self_sync_core-a1			-- file version name
 # self_sync_core-a2
