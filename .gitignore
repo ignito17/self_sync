@@ -2,3 +2,6 @@ docs/perf_tracker_delta.md
 docs/track/*.py
 docs/track/*.md
 docs/track/*
+api/__pycache__/*
+db_engine/__pycache__/*
+modules/__pycache__/*
