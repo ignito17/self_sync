@@ -1,4 +1,5 @@
 # api/api_connector.py
+# Just a testing script for api client logic 
 
 import api_client
 

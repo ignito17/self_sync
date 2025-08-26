@@ -1,7 +1,5 @@
-import requests
-import os
-
 # 📁 self_sync/modules/api_client.py
+# Client for the api host, i.e. could be used to connect and bridge data out and in.
 
 import requests
 import os

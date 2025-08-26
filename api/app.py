@@ -1,5 +1,6 @@
 # self_sync_core-a2, self_sync_web-a1
 # api/api.py
+# web api hoster with route and data definitions
 
 # import sqlite3
 import os 
@@ -9,17 +10,22 @@ from modules import diary_logger, money_tracker, stats_viewer, time_tracker
 
 
 # Creating the Flask app
-app = Flask(__name__)
+app = Flask("Self Sync")
 # DB_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'db', 'data.sqlite'))
 
 # Creating the base route
-@app.route("/", methods=["GET"])
+@app.route("/")
 def index():
-    # return "🧠 Self Sync API is live!"
-    return render_template("index.html")
+    return "🧠 Self Sync API is live!"
+    # return render_template("index.html")
+
+# Route to access notes (in web browser)
+@app.route("/notes",methods=["GET"])
+def show_notes():
+    return stats_viewer.show_review()
 
 # Route to acess /add_note api
-@app.route("/add_note", methods=["POST"])
+@app.route("/add_note", methods=["GET","POST"])
 def add_note():
     data=request.get_json()
     title=data.get("title")
@@ -27,14 +33,16 @@ def add_note():
     if not title or not desc:
         return jsonify({"status": "fail", "msg": "Missing title or desc"}), 400
     try:
-        conn=sqlite3.connect(DB_PATH)
-        cur=conn.cursor()
-        cur.execute(
-            "INSERT INTO diary_entries (title, description,timestamp) VALUES (?, ?, ?)",
-            (title, desc, datetime.now().isoformat())
-        )
-        conn.commit()
-        conn.close()
+        # conn=sqlite3.connect(DB_PATH)
+        # cur=conn.cursor()
+        # cur.execute(
+        #     "INSERT INTO diary_entries (title, description,timestamp) VALUES (?, ?, ?)",
+        #     (title, desc, datetime.now().isoformat())
+        # )
+        # conn.commit()
+        # conn.close()
+        diary_logger.add_note(title=title,desc=desc)
+        
         return jsonify({"status":"sucess", "msg":"Note Added"}), 201
     except Exception as e:
         return jsonify({"status":"error","msg":str(e)}), 500
@@ -47,14 +55,8 @@ def add_pomo():
     topic=data.get("topic")
     if not minutes or not topic:
         return jsonify({"error":"Missing Fields"}), 400
-    conn=sqlite3.connect(DB_PATH)
-    c=conn.cursor()
-    c.execute("""
-                INSERT INTO pomo_sessions (minutes,topic,timestamp)
-                VALUES (?,?,?)""",
-                (minutes,topic,datetime.now().isoformat()))
-    conn.commit()
-    conn.close()
+    time_tracker.add_pomo(minutes=minutes,topic=topic)
+
     return jsonify({"message": f"✅ Pomo of {minutes} mins on '{topic}' logged."})
 
 # Route to access /add_expense api
