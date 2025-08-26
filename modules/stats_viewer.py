@@ -34,8 +34,8 @@ def show_review():
 
     print("=" * 30)
 
-def send_review(days=1):
+def send_review(days=1,user="default"):
     all_data={f"✅ Pomodoro:":[row for row in engine["pomos"].read_all()],
-              f"💸 Expenses: ₹":[row for row in engine["expenses"].read_all],
-              f"📝 Notes:":[row for row in engine["notes"].read_all]}
+              f"💸 Expenses: ₹":[row for row in engine["expenses"].read_all()],
+              f"📝 Notes:":[row for row in engine["notes"].read_all()]}
     return all_data
