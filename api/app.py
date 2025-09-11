@@ -16,14 +16,20 @@ app = Flask("Self Sync",
             )
 # DB_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'db', 'data.sqlite'))
 
-# Creating the base route
+# Creating the base routes
 @app.route("/")
 def index():
     # return "🧠 Self Sync API is live!"
     return render_template("index.html")
 
+# Creating base API routes
+# Index Route "/api"
+@app.route("/api",methods=["GET"])
+def api():
+    return jsonify({"API":"Self Sync"}), 000
+
 # Route to acess /add_note api
-@app.route("/add_note", methods=["POST"])
+@app.route("/api/add_note", methods=["POST"])
 def add_note():
     data=request.get_json()
     title=data.get("title")
