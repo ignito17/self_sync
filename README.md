@@ -65,6 +65,8 @@ This will be your living proof of concept.
 ---
 
 ## 🧭 Final Alignment
+Hit from root of the project repo
+```pyhton3 main.py``` 
 
 🔹 Name: `self_sync`
 🔹 Host: Termux-first, Linux-compatible
