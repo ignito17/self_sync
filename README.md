@@ -1,5 +1,3 @@
-Phase 1: The Core Tracker (TOM – Time, Objective, Money)** with a focus on pragmatic execution inside Termux first. No abstractions for now — just useful, living code.
-
 ---
 
 ## ✅ Project Self Sync
@@ -10,16 +8,6 @@ After considering the execution style and personal integration goals, self_synci
 
 > **“Personal, local sync runtime — managing your time, actions, and resources.”**
 > Modular, private, portable. Designed to sync and thus observe *your resources* with your *plans*.
-
-If you'd like alternatives, here are a few in the same spirit:
-
-Architecture wise `self_sync` has:
-
-* A clean UNIX-style feeling
-* Meaning tied to your current needs and goals.
-* Extensible scope 
-	- designed with modularity in mind.
-	- (`self_sync_core`, `self_sync_web`, `self_sync_api` etc.)
 
 ---
 
@@ -48,32 +36,6 @@ self_sync_core-a1/
 │   ├── diary_logger.py      # Daily notes and action logs
 │   └── stats_viewer.py      # Weekly summary etc
 ├── README.md
-```
-
----
-
-### 2. 📜 First Code: `main.py`
-
-We'll start with a basic CLI runner that calls modules like:
-
-```python
-# main.py
-from modules import time_tracker, money_tracker, diary_logger, stats_viewer
-import sys
-
-if __name__ == "__main__":
-    cmd = sys.argv[1] if len(sys.argv) > 1 else None
-
-    if cmd == "pomo":
-        time_tracker.add_pomo(sys.argv[2:])
-    elif cmd == "spend":
-        money_tracker.add_expense(sys.argv[2:])
-    elif cmd == "note":
-        diary_logger.add_note(" ".join(sys.argv[2:]))
-    elif cmd == "review":
-        stats_viewer.show_review()
-    else:
-        print("Available commands: pomo, spend, note, review")
 ```
 
 ---
